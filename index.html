@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <img src="assets/logo.png" alt="Логотип Stark Industries" style="max-height: 50px; max-width: 50px;" />
+            </div>
+            <div class="brand-title">Stark <span>Industries</span></div>
+        </div>
+        <nav>
+            <a href="index.html" class="active">Головна</a>
+            <a href="directions.html">Напрями діяльності</a>
+            <a href="feedback.html">Зворотній зв'язок</a>
+        </nav>
+    </header>
+    <main id="homePage" class="page active">
+        <div class="goal-tasks-block">
+        <h2>Про корпорацію</h2>
+        <p class="goal-description"><strong>Мета створення:</strong> Розробка революційних чистих джерел енергії, створення високотехнологічних оборонних та медичних систем, а також забезпечення технологічної переваги людства у боротьбі із глобальними загрозами.</p>
+        
+        <h3>Основні завдання для досягнення мети:</h3>
+        <ol class="roman-list">
+            <li>Масштабування технології Arc Reactor для забезпечення безкоштовною та екологічною енергією всього світу.</li>
+            <li>Розробка передових екзоскелетів та систем захисту для підтримання глобальної безпеки.</li>
+            <li>Створення штучного інтелекту нового покоління для автоматизації досліджень та космічного моніторингу.</li>
+        </ol>
+        </div>
+        <div class="founders-block">
+        <h3>Інформація про засновників та керівництво</h3>
+        <p>Заснована Говардом Старком, корпорація Stark Industries перетворилася з оборонного гіганта на світового лідера у сфері чистої енергії та штучного інтелекту під керівництвом Ентоні "Тоні" Старка.</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Прізвище та ініціали</th>
+                    <th>Досвід роботи</th>
+                    <th>Освіта</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Старк Е. Е. (Тоні)</td>
+                    <td>20+ років (CEO, Головний інженер)</td>
+                    <td>Вища (MIT, Магістр інженерії та фізики)</td>
+                </tr>
+                <tr>
+                    <td>Поттс В. "Пеппер"</td>
+                    <td>15 років (Голова ради директорів, CEO)</td>
+                    <td>Вища (Гарвардський університет, Бізнес-адміністрування)</td>
+                </tr>
+                <tr>
+                    <td>Роудс Дж. "Роуді"</td>
+                    <td>18 років (Військово-технічний консультант)</td>
+                    <td>Вища (Військова академія США, Аерокосмічна інженерія)</td>
+                </tr>
+            </tbody>
+        </table></div>
+    </main>
+    <main id="activitiesPage" class="page">
+        <h2>Напрями діяльності</h2>
+        <div class="activity-card">
+            <img src="https://via.placeholder.com/120/00d2ff/000000?text=Arc+Reactor" alt="Arc Reactor">
+            <div>
+                <h3>1. Чиста енергетика (Arc Reactor)</h3>
+                <p>Проєктування та будівництво чистих термоядерних реакторів нового покоління для постачання енергії у найбільші мегаполіси.</p>
+                <p><strong>Зв’язок з державними органами:</strong> Контракти з Департаментом енергетики США (DOE).</p>
+            </div>
+        </div>
+
+        <div class="activity-card">
+            <img src="https://via.placeholder.com/120/8b0000/ffd700?text=Iron+Tech" alt="Defense Tech">
+            <div>
+                <h3>2. Захисні екзоскелети та автоброня</h3>
+                <p>Розробка спецодягу, захисних костюмів та робототехніки для рятувальних та оборонних місій.</p>
+                <p><strong>Зв’язок з державними органами:</strong> Співпраця з Збройними силами США та агентством S.H.I.E.L.D.</p>
+            </div>
+        </div>
+
+        <div class="activity-card">
+            <img src="https://via.placeholder.com/120/ffd700/000000?text=JARVIS+AI" alt="AI Research">
+            <div>
+                <h3>3. Штучний Інтелект та Квантові обчислення</h3>
+                <p>Підтримка та розвиток нейромереж J.A.R.V.I.S., F.R.I.D.A.Y. та E.D.I.T.H. для обробки глобальних даних.</p>
+                <p><strong>Зв’язок з державними органами:</strong> Інтеграція із системами виявлення загрози NASA та NORAD.</p>
+            </div>
+        </div>
+
+        <button onclick="showPage('homePage')">← На Головну сторінку</button>
+    </main>
+    <main id="feedbackPage" class="page">
+        <h2>Зворотній зв’язок</h2>
+        <form id="feedbackForm" onsubmit="submitForm(event)">
+            <fieldset>
+                <legend>Персональна інформація</legend>
+                
+                <div class="form-group">
+                    <label for="fullName">1. Прізвище та ім’я:</label>
+                    <input type="text" id="fullName" placeholder="напр. Пітер Паркер" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">2. E-mail:</label>
+                    <input type="email" id="email" placeholder="stark@starkindustries.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="age">3. Вік:</label>
+                    <input type="number" id="age" min="1" max="120" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="education">4. Освіта:</label>
+                    <select id="education" required>
+                        <option value="">-- Оберіть освіту --</option>
+                        <option value="неповна">неповна</option>
+                        <option value="повна">повна</option>
+                        <option value="професійна">професійна</option>
+                        <option value="вища">вища</option>
+                    </select>
+                </div>
+            </fieldset>
+            <div class="form-group">
+                <label for="purpose">5. Мета зворотнього зв’язку:</label>
+                <select id="purpose" required>
+                    <option value="">-- Оберіть мету --</option>
+                    <option value="співпраця">співпраця</option>
+                    <option value="скарга на порушення права власності">скарга на порушення права власності</option>
+                    <option value="пропозиція">пропозиція</option>
+                    <option value="наявність помилки">наявність помилки</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="detailText">6. Детально (макс. 200 символів):</label>
+                <textarea id="detailText" maxlength="200" placeholder="Введіть ваше звернення..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="consent" required> 
+                    8. Я даю згоду на обробку моїх персональних даних системою F.R.I.D.A.Y.
+                </label>
+            </div>
+            <button type="submit" style="padding: 10px 20px; background-color: #8b0000; color: #ffd700; border: 1px solid #ffd700; border-radius: 3px; cursor: pointer; font-weight: bold;">
+                7. Відправити повідомлення
+            </button>
+        </form>
+    </main>
+    <footer>
+        <div class="contacts-block">
+            <h3>Адреса та контакти:</h3>
+            <p><strong>Штаб-квартира:</strong> США, м. Нью-Йорк, Мангеттен, Stark Tower, 200 Парк-авеню</p>
+            <p><strong>Контактні телефони:</strong> +1 (212) 555-0199, +1 (800) STARK-SYS</p>
+        </div>
+    </footer>
+</body>
+</html>

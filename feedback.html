@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <img src="assets/logo.png" alt="Логотип Stark Industries" style="max-height: 50px; max-width: 50px;" />
+            </div>
+            <div class="brand-title">Stark <span>Industries</span></div>
+        </div>
+        <nav>
+            <a href="index.html">Головна</a>
+            <a href="directions.html">Напрями діяльності</a>
+            <a href="feedback.html" class="active">Зворотній зв'язок</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Зворотній зв’язок</h2>
+
+        <form id="feedbackForm" onsubmit="sendFeedback(event)">
+            <fieldset>
+                <legend>Персональна інформація</legend>
+                <div class="form-group">
+                    <label for="fullName">1. Прізвище та ім’я:</label>
+                    <input type="text" id="fullName" placeholder="напр. Пітер Паркер" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">2. E-mail:</label>
+                    <input type="email" id="email" placeholder="parker@starkindustries.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="age">3. Вік:</label>
+                    <input type="number" id="age" min="1" max="120" placeholder="18" required>
+                </div>
+                <div class="form-group">
+                    <label for="education">4. Освіта:</label>
+                    <select id="education" required>
+                        <option value="">-- Оберіть освіту --</option>
+                        <option value="повна">повна</option>
+                        <option value="неповна">неповна</option>
+                        <option value="вища">вища</option>
+                        <option value="професійна">професійна</option>
+                    </select>
+                </div>
+            </fieldset>
+            <div class="form-group">
+                <label for="purpose">5. Мета зворотнього зв’язку:</label>
+                <select id="purpose" required>
+                    <option value="">-- Оберіть мету звернення --</option>
+                    <option value="співпраця">співпраця</option>
+                    <option value="скарга на порушення права власності">скарга на порушення права власності</option>
+                    <option value="пропозиція">пропозиція</option>
+                    <option value="наявність помилки">наявність помилки</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="detailText">6. Детально (максимум 200 символів):</label>
+                <textarea id="detailText" maxlength="200" placeholder="Опишіть деталі вашого звернення..." required></textarea>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="consent" required>
+                <label for="consent">8. Надаю згоду на обробку моїх персональних даних системою F.R.I.D.A.Y.</label>
+            </div>
+            <button type="submit" class="btn-submit">Відправити дані</button>
+        </form>
+
+        <a href="index.html" class="btn-home">← Повернутися на Головну сторінку</a>
+    </main>
+
+    <footer>
+        <p>&copy; Stark Industries. Всі права захищено. Системи під контролем F.R.I.D.A.Y.</p>
+    </footer>
+</body>
+</html>
