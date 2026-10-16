@@ -5,10 +5,7 @@ body {
     background-color: #121212;
     color: #e0e0e0;
 }
-
-.home-page header,
-#homePage header,
-body.home-page .header-logo-block {
+header{
     position: absolute;
     top: 0;
     left: 0;
@@ -43,22 +40,6 @@ body.home-page .header-logo-block {
 
 .contacts-block:hover p {
     text-shadow: 2px 2px 8px #00d2ff, -2px -2px 8px #ffd700;
-}
-
-
-.activities-page header,
-#activitiesPage header,
-body.activities-page .header-logo-block {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-}
-
-.activities-page main,
-#activitiesPage main {
-    margin-top: 100px;
 }
 
 .activity-card {
@@ -267,8 +248,12 @@ legend {
     padding: 0 5px;
 }
 
-.form-group {
-    margin-bottom: 15px;
+form#feedbackForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 15px;
 }
 
 .form-group label {
@@ -326,6 +311,8 @@ textarea#detailText {
 }
 
 .btn-submit {
+    align-self: flex-start;
+    order: 1;
     padding: 12px;
     background-color: #8b0000;
     color: #ffd700;
@@ -349,4 +336,26 @@ footer {
     background-color: #0a0a0a;
     border-radius: 5px;
     border-top: 2px solid #8b0000;
+}
+
+::-webkit-scrollbar {
+    width: 10px;           
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0a0a;
+    border-left: 1px solid #222;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #8b0000 0%, #4a0000 100%);
+    border-radius: 5px;
+    border: 1px solid #ffd700;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #00d2ff;
+    box-shadow: 0 0 10px #00d2ff;
+    border-color: #ffffff;
 }
