@@ -5,14 +5,6 @@ body {
     background-color: #121212;
     color: #e0e0e0;
 }
-header{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    margin-bottom: 0;
-    z-index: 1000;
-}
 
 .goal-tasks-block {
     margin: 25px 0;
@@ -81,7 +73,7 @@ header{
 .activity-card img:focus,
 .activity-card img:hover {
     filter: saturate(200%);
-    outline: none;
+    /* outline: none; */
 }
 
 a:active,
@@ -90,6 +82,12 @@ button:active {
 }
 
 header {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin-bottom: 0;
+    z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: space-between;
