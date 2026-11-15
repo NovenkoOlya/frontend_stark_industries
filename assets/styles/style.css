@@ -70,11 +70,81 @@ body {
     transition: filter 0.4s ease;
 }
 
-.activity-card img:focus,
+.flip-container {
+    width: 340px;       /* Квадратна ширина (як у сусідній картці) */
+    height: 140px;      /* Квадратна висота */
+    flex-shrink: 0;     /* Забороняє flex-контейнеру стискати або розтягувати квадрат */
+    perspective: 1000px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s ease;
+    transform-style: preserve-3d;
+}
+
+/* Переворот при наведенні курсора */
+.flip-container:hover .flip-card-inner,
+.flip-container.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-container.no-flip:hover .flip-card-inner,
+.flip-container.no-flip.flipped .flip-card-inner {
+    transform: none !important;
+}
+
+.flip-container.no-flip {
+    cursor: default;
+}
+
+.flip-front, .flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    overflow: hidden;
+}
+.flip-front img {
+    max-width: 140px;
+    max-height: 140px;
+    border-radius: 6px;
+}
+
+.flip-back {
+    background: #111827;
+    color: #f8fafc;
+    border: 2px solid #b91c1c; /* Червоний акцент у стилі вашого сайту */
+    transform: rotateY(180deg);
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.flip-back h4 {
+    color: #facc15; /* Жовтий заголовок як у вас на скріншоті */
+    margin: 0 0 8px 0;
+    font-size: 15px;
+}
+
+.flip-back ul {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+/* .activity-card img:focus,
 .activity-card img:hover {
     filter: saturate(200%);
-    /* outline: none; */
-}
+
+} */
 
 a:active,
 button:active {
@@ -122,6 +192,18 @@ header {
     border: 2px solid #00d2ff;
     box-shadow: 0 0 12px rgba(0, 210, 255, 0.6);
     text-shadow: 0 0 4px #000;
+}
+
+.brand-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+#typewriter-alert {
+    margin: 4px 0 0 0;
+    font-size: 13px;
+    max-width: 550px; /* Щоб текст не розтягував шапку і не штовхав меню вправо */
+    line-height: 1.3;
 }
 
 .brand-title {
@@ -287,6 +369,41 @@ textarea#detailText {
     resize: none;
 }
 
+/* Контейнер для розміщення підказки праворуч від поля */
+.detail-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Плавний перехід для самого поля */
+#detailText {
+    transition: all 0.3s ease;
+    flex: 1; /* Займає основну ширину */
+}
+
+/* Клас, який додається через JS при наведенні курсора */
+#detailText.hovered-field {
+    background-color: #1e293b;                  /* Зміна кольору фону */
+    border: 2px solid #00f0ff;                  /* Поява яскравої рамки */
+    box-shadow: 0 4px 16px rgba(0, 240, 255, 0.4); /* Тінь від рамки */
+}
+
+/* Стиль тексту-підказки праворуч */
+.custom-tooltip {
+    display: none;
+    background-color: #00f0ff;
+    color: #0f172a;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    max-width: 240px;
+    line-height: 1.35;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    flex-shrink: 0;
+}
+
 .btn-home {
     display: inline-block;
     background-color: #ffd700;
@@ -357,3 +474,15 @@ footer {
     box-shadow: 0 0 10px #00d2ff;
     border-color: #ffffff;
 }
+
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.8); z-index: 1000;
+    display: flex; justify-content: center; align-items: center;
+}
+.modal-box {
+    background: #111827; border: 2px solid #00f0ff; color: #fff;
+    padding: 25px; max-width: 450px; border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+}
+#close-modal-btn:disabled { opacity: 0.4; cursor: not-allowed; }
