@@ -1,3 +1,16 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -35,6 +48,7 @@ body {
 }
 
 .activity-card {
+    max-width: 100%;
     background-color: #252525;
     padding: 15px;
     margin-bottom: 15px;
@@ -71,9 +85,9 @@ body {
 }
 
 .flip-container {
-    width: 340px;       /* Квадратна ширина (як у сусідній картці) */
-    height: 140px;      /* Квадратна висота */
-    flex-shrink: 0;     /* Забороняє flex-контейнеру стискати або розтягувати квадрат */
+    width: 340px;
+    height: 140px;
+    flex-shrink: 0;
     perspective: 1000px;
     cursor: pointer;
     border-radius: 8px;
@@ -83,13 +97,18 @@ body {
     position: relative;
     width: 100%;
     height: 100%;
+    -webkit-transition: -webkit-transform 0.6s ease;
+    -moz-transition: -moz-transform 0.6s ease;
     transition: transform 0.6s ease;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
     transform-style: preserve-3d;
 }
 
-/* Переворот при наведенні курсора */
 .flip-container:hover .flip-card-inner,
 .flip-container.flipped .flip-card-inner {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
     transform: rotateY(180deg);
 }
 
@@ -106,9 +125,12 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
     backface-visibility: hidden;
     overflow: hidden;
 }
+
 .flip-front img {
     max-width: 140px;
     max-height: 140px;
@@ -118,7 +140,7 @@ body {
 .flip-back {
     background: #111827;
     color: #f8fafc;
-    border: 2px solid #b91c1c; /* Червоний акцент у стилі вашого сайту */
+    border: 2px solid #b91c1c;
     transform: rotateY(180deg);
     padding: 15px;
     box-sizing: border-box;
@@ -128,7 +150,7 @@ body {
 }
 
 .flip-back h4 {
-    color: #facc15; /* Жовтий заголовок як у вас на скріншоті */
+    color: #facc15;
     margin: 0 0 8px 0;
     font-size: 15px;
 }
@@ -202,7 +224,7 @@ header {
 #typewriter-alert {
     margin: 4px 0 0 0;
     font-size: 13px;
-    max-width: 550px; /* Щоб текст не розтягував шапку і не штовхав меню вправо */
+    max-width: 550px;
     line-height: 1.3;
 }
 
@@ -294,6 +316,20 @@ ol.roman-list {
     line-height: 1.8;
 }
 
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+}
+
+.table-responsive table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 500px;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -369,27 +405,23 @@ textarea#detailText {
     resize: none;
 }
 
-/* Контейнер для розміщення підказки праворуч від поля */
 .detail-wrapper {
     display: flex;
     align-items: center;
     gap: 15px;
 }
 
-/* Плавний перехід для самого поля */
 #detailText {
     transition: all 0.3s ease;
-    flex: 1; /* Займає основну ширину */
+    flex: 1;
 }
 
-/* Клас, який додається через JS при наведенні курсора */
 #detailText.hovered-field {
-    background-color: #1e293b;                  /* Зміна кольору фону */
-    border: 2px solid #00f0ff;                  /* Поява яскравої рамки */
-    box-shadow: 0 4px 16px rgba(0, 240, 255, 0.4); /* Тінь від рамки */
+    background-color: #1e293b;
+    border: 2px solid #00f0ff;
+    box-shadow: 0 4px 16px rgba(0, 240, 255, 0.4);
 }
 
-/* Стиль тексту-підказки праворуч */
 .custom-tooltip {
     display: none;
     background-color: #00f0ff;
@@ -486,3 +518,38 @@ footer {
     box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
 }
 #close-modal-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+@media screen and (max-width: 768px) {
+    .activity-card {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 15px !important;
+        gap: 15px !important;
+    }
+
+    .flip-container {
+        width: 100% !important;
+        max-width: 300px !important;
+        height: 170px !important;
+        margin: 0 auto !important;
+    }
+
+    .activity-info {
+        width: 100% !important;
+        text-align: left !important;
+    }
+
+    .activity-info h3 {
+        font-size: 1.2rem !important;
+        text-align: center;
+    }
+
+    .table-responsive th,
+    .table-responsive td {
+        padding: 8px 10px !important;
+        font-size: 0.85rem !important;
+    }
+}
